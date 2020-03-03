@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<head>
+</head>
+<style>
+.all {
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+</style>
+<html>
+<body>
+<div class="all">
+<h1>Rat Tracker</h1>
+<div class="row">
+{% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+			<h2>Currently on EGR floor {{ project.floorNo }}</h2>
+             <img class="card-img-top" src="{% static project.image %}">
+             <div class="card-body">
+                 <h5 class="card-Location">{{ project.xLocation }}, {{ project.yLocation }}</h5>
+                 <p class="card-status">{{ project.status }}</p>
+                 <a href=""
+                    class="btn btn-primary">
+                     Go!
+                 </a>
+             </div>
+         </div>
+     </div>
+
+
+     {% endfor %}
+	 <select id="floors">
+	  <option value="first">1st floor</option>
+	  <option value="second">2nd floor</option>
+	  <option value="third">3rd floor</option>
+	</select>
+	<select id="rooms">
+	{% for room in firstfloor %}
+	 <option >{{ room.room }}</option>
+	{% endfor %}
+   </select>
+
+ </div>
+
+</div>
+</body>
+</html>
+ {% endblock %}
