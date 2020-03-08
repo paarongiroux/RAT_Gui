@@ -13,10 +13,28 @@
 </style>
 <html>
 <body>
-<div class="all">
+<div class="container">
 <h1>Rat Tracker</h1>
-<div class="row">
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Submit</button>
+	</form>
+
+<h2> Going to: Floor {{floor}}, Room {{room}}  <h2>
+<br><br>
+
 {% for project in projects %}
+
+
+<h2>Currently on EGR floor: {{ project.floorNo }}</h2>
+<br>
+<h2 class="card-Location">Location: {{ project.xLocation }}, {{ project.yLocation }}</h2>
+<br>
+<h2 class="card-status">Status: {{ project.status }}</h2>
+<br>
+{% endfor %}
+<!-- {% for project in projects %}
     <div class="col-md-4">
         <div class="card mb-2">
 			<h2>Currently on EGR floor {{ project.floorNo }}</h2>
@@ -24,28 +42,28 @@
              <div class="card-body">
                  <h5 class="card-Location">{{ project.xLocation }}, {{ project.yLocation }}</h5>
                  <p class="card-status">{{ project.status }}</p>
-                 <a href=""
-                    class="btn btn-primary">
-                     Go!
-                 </a>
              </div>
          </div>
      </div>
 
 
-     {% endfor %}
-	 <select id="floors">
-	  <option value="first">1st floor</option>
-	  <option value="second">2nd floor</option>
-	  <option value="third">3rd floor</option>
-	</select>
-	<select id="rooms">
-	{% for room in firstfloor %}
-	 <option >{{ room.room }}</option>
-	{% endfor %}
-   </select>
-
- </div>
+     {% endfor %} -->
+	 <!-- <form action="RoomObjects" method="post">
+		<select id="floors">
+		  <option value="first">1st floor</option>
+		  <option value="second">2nd floor</option>
+		  <option value="third">3rd floor</option> -->
+		  <!-- <button type="submit">Submit</button> -->
+		<!-- </select>
+	</form>
+	<form action="RoomObjects" method="post">
+		<select id="rooms">
+		{% for room in firstfloor %}
+		 <option >{{ room.room }}</option>
+		{% endfor %}
+	   </select>
+	  	<button type="submit">Submit</button>
+	</form> -->
 
 </div>
 </body>
