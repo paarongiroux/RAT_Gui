@@ -12,9 +12,12 @@
 }
 </style>
 <html>
+<center>
 <body>
 <div class="container">
 <h1>Rat Tracker</h1>
+{% load static %}
+<img src="{% static "Unknown.jpg" %}" alt="My image">
 	<form method="post">
 		{% csrf_token %}
 		{{ form.as_p }}
@@ -67,5 +70,6 @@
 
 </div>
 </body>
+</center>
 </html>
  {% endblock %}
