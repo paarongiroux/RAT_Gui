@@ -20,12 +20,13 @@
 		{{ form.as_p }}
 		<button type="submit">Submit</button>
 	</form>
-<img src="/media/projects/Unknown.jpeg">
+{% for project in projects %}
+<img src="/media/projects/Floor{{ project.floorNo }}.jpeg">
 
 <h2> Going to: Floor {{floor}}, Room {{room}}  <h2>
 <br><br>
 
-{% for project in projects %}
+
 
 
 <h2>Currently on EGR floor: {{ project.floorNo }}</h2>
