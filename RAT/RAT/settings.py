@@ -15,7 +15,10 @@ DEBUG = True
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'fathomless-wave-07414.herokuapp.com',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -27,7 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'projects',
+    'django_select2',
+    'projects.apps.ProjectsConfig',
 ]
 
 MIDDLEWARE = [

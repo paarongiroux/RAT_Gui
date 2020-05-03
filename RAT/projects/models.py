@@ -7,7 +7,7 @@ class Project(models.Model):
    xLocation = models.IntegerField()
    yLocation = models.IntegerField()
    status = models.CharField(max_length=20)
-   image = models.FilePathField(path="/img")
+   timestamp = models.DateTimeField(auto_now=True)
 
 
 class FirstFloor(models.Model):
@@ -18,3 +18,18 @@ class SecondFloor(models.Model):
 
 class ThirdFloor(models.Model):
    room = models.IntegerField()
+
+class Floor(models.Model):
+   floorNo = models.IntegerField()
+   floorname = models.CharField(max_length=255)
+   def __str__(self):
+      return self.floorname
+
+class Room(models.Model):
+   floor = models.ForeignKey(Floor, on_delete=models.CASCADE)
+   roomNo = models.IntegerField()
+   roomname = models.CharField(max_length=255)
+
+   def __str__(self):
+      return self.roomname
+

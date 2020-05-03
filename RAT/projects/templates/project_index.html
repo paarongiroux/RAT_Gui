@@ -2,6 +2,8 @@
 {% load static %}
 {% block page_content %}
 <head>
+	<script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+	{{ form.media.css }}
 </head>
 <style>
 .all {
@@ -13,6 +15,7 @@
 </style>
 <html>
 <body>
+	{{ form.media.js }}
 <div class="container">
 <h1>Rat Tracker</h1>
 	<form method="post">
@@ -22,10 +25,10 @@
 	</form>
 {% for project in projects %}
 <img src="/media/projects/Floor{{ project.floorNo }}.jpeg">
-
+{% if floor %}
 <h2> Going to: Floor {{floor}}, Room {{room}}  <h2>
 <br><br>
-
+{%endif%}
 
 
 
@@ -35,6 +38,7 @@
 <br>
 <h2 class="card-status">Status: {{ project.status }}</h2>
 <br>
+{{ project.timestamp}}
 {% endfor %}
 <!-- {% for project in projects %}
     <div class="col-md-4">
